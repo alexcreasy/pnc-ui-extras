@@ -1,0 +1,50 @@
+<style>
+.px-search-clear {
+  position: absolute;
+  z-index: 100;
+  right: 18px;
+  top: 2px;
+  height: 14px;
+  margin: auto;
+  color: inherit;
+  cursor:  pointer;
+}
+
+.px-search-clear > a:hover {
+  background-color: inherit;
+  color: inherit;
+  cursor:  pointer;
+}
+
+.px-combobox-dropdown {
+  display: block;
+}
+.px-combobox-active a,a:hover {
+  background-color: #def3ff;
+}
+.px-combobox-dropdown > .px-combobox-option a,a:hover {
+  border-width: 0px;
+}
+
+.px-combobox-dropdown > .px-combobobox-option {
+  whitespace: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+</style>
+<div class="combobox-container" ng-keydown="$event.stopPropagation()">
+  <div class="input-group">
+    <input type="text" autocomplete="off" id="combobox-{{::$id}}" ng-keyup="$ctrl.onKey($event)" placeholder="{{ ::$ctrl.placeholder }}" class="combobox form-control" ng-focus="$ctrl.openDropDown()" ng-model="$ctrl.inputModel" ng-model-options="$ctrl.modelOptions" pf-focused="$ctrl.showDropDown">
+    <div class="px-search-clear"><a class="px-search-clear" ng-show="$ctrl.inputModel" ng-click="$ctrl.clear()"><span class="pficon pficon-close"></span></a></div>
+    <ul class="typeahead typeahead-long dropdown-menu px-combobox-dropdown" ng-if="$ctrl.options.length > 0 && $ctrl.showDropDown">
+      <li ng-repeat="option in $ctrl.options" ng-include="$ctrl.optionTemplateUrl" class="px-combobox-option" ng-mouseover="$ctrl.setHighlighted($index)" ng-class="{ 'px-combobox-active': $ctrl.isHighlighted($index) }">
+      </li>
+      <li data-value="spinner" class="text-center" ng-show="$ctrl.isLoading()">
+        <span class="spinner spinner-xs spinner-inline"></span>
+      </li>
+    </ul>
+    <span class="input-group-addon dropdown-toggle" ng-class="{ 'dropup': $ctrl.showDropDown }" data-dropdown="dropdown" role="button" ng-click="$ctrl.toggleDropDown()">
+      <span class="caret"></span>
+    </span>
+  </div>
+</div>

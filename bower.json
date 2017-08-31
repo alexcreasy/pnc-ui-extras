@@ -1,0 +1,24 @@
+{
+  "name": "pnc-ui-extras",
+  "version": "0.0.0",
+  "authors": [
+    {
+      "name": "Alex Creasy",
+      "email": "acreasy@redhat.com"
+    }
+  ],
+  "main": ["dist/pnc-ui-extras.js"],
+  "ignore": [
+    "src",
+    "test",
+    "gulpfile.js",
+    "karma-*.conf.js",
+    "**/.*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": ">=1.5.8",
+    "angular-scenario": ">=1.5.8",
+    "angular": ">=1.5.8"
+  }
+}
