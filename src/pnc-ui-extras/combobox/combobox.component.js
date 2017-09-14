@@ -110,6 +110,9 @@ class ComboboxController {
     if (!angular.isArray(this.options)) {
       return;
     }
+    if (this.getViewValue(modelValue)) {
+      return modelValue;
+    }
     return this.options.find(option => this.getModelValue(option) === modelValue);
   }
 
