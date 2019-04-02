@@ -16,8 +16,6 @@ var ComboboxController = function () {
   function ComboboxController($log, $scope, $element, $timeout) {
     _classCallCheck(this, ComboboxController);
 
-    var DEFAULT_OPTION_TEMPLATE_URL = 'pnc-ui-extras/combobox/combobox-option.template.html';
-
     this.$log = $log;
     this.$scope = $scope;
     this.$element = $element;
@@ -26,7 +24,6 @@ var ComboboxController = function () {
     this.options = []; // List of options for the user to select from
     this.showDropDown = false;
     this.modelOptions = {}; // Values for ng-model-options directive
-    this.optionTemplateUrl = this.optionTemplateUrl || DEFAULT_OPTION_TEMPLATE_URL;
   }
 
   _createClass(ComboboxController, [{
@@ -34,6 +31,10 @@ var ComboboxController = function () {
     value: function $onInit() {
       var _this = this;
 
+      if (!this.optionTemplateUrl) {
+        var DEFAULT_OPTION_TEMPLATE_URL = 'pnc-ui-extras/combobox/combobox-option.template.html';
+        this.optionTemplateUrl = DEFAULT_OPTION_TEMPLATE_URL;
+      }
       if (this.ngModel) {
         var editable = this.editable === true || this.editable === 'true';
 
