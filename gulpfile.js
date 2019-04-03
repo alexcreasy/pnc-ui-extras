@@ -26,6 +26,7 @@ var sourceDirectory = path.join(rootDirectory, './src');
 var testDirectory = path.join(rootDirectory, './test/unit');
 
 var sourceFiles = [
+  path.join('./license.js'),
   path.join(sourceDirectory, '/**/*.module.js'),
   path.join(sourceDirectory, '/**/*.js')
 ];
